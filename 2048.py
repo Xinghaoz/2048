@@ -23,7 +23,7 @@ class GameField(object):
     def __init__(self, height = 4, width = 4, win = 2048):
         self.height = height
         self.width = width
-        self.win_value = 2048
+        self.win_value = win
         self.score = 8
         self.highscore = 0
         self.reset()
@@ -110,9 +110,9 @@ class GameField(object):
     # Draw the picture
     def draw(self, screen):
         help_string1 = '(W)Up (S)Down (A)Left (D)Right'
-        help_string2 = '        (R)Restart  (Q)Exit'
-        gameover_string = '     GAME OVER'
-        win_string = '      YOU WIN!'
+        help_string2 = '\t(R)Restart  (Q)Exit'
+        gameover_string = '\tGAME OVER'
+        win_string = '\tYOU WIN!'
 
         def cast(string):
             screen.addstr(string + '\n')
