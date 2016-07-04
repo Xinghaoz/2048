@@ -1,6 +1,7 @@
 import curses
 from random import randrange, choice
 from collections import defaultdict
+import sys
 
 actions = ['Up', 'Left', 'Down', 'Right', 'Restart', 'Exit']
 letter_codes = [ord(ch) for ch in 'WASDRQwasdrq']
@@ -191,7 +192,14 @@ def main(stdscr):
         'Game': game
     }
     curses.use_default_colors()
-    game_field = GameField(win=256)
+
+    if len(sys.argv) < 2:
+        game_field = GameField(win=256)
+    else:
+        if sys.argv[1].isdigit():
+            game_field = GameField(win=int(sys.argv[1]))
+        else:
+            game_field = GameField(win=256)
 
     state = 'Init'
 
